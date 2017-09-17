@@ -1,13 +1,17 @@
 <md-toolbar color="primary">
-  <span>MyCompany</span>
+  <span>아이돌 카드 교환소</span>
   <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> 메뉴</button>
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-  <button md-menu-item> Settings </button>
-  <button md-menu-item> Help </button>
+  <a routerLink="/dashboard">
+    <button md-menu-item> 메인 </button>
+  </a>
+  <a routerLink="/register">
+    <button md-menu-item> 카드교환 등록 </button>
+  </a>
+  <button md-menu-item> 로그아웃 </button>
 </md-menu>
 
 <router-outlet></router-outlet>
-
