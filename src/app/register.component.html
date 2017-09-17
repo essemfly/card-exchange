@@ -1,0 +1,56 @@
+<md-card>
+    <md-card-title>교환신청</md-card-title>
+    <br>
+    <md-card-content>
+        <img md-card-image src="assets/main.jpg" />
+    </md-card-content>
+    <md-card-content>
+        <h3>너덬이 가진 것?</h3>
+        <h4>버전</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="haveVersion">
+            <md-radio-button class="example-radio-button" *ngFor="let version of versions" [value]="version">
+                {{version}}
+            </md-radio-button>
+        </md-radio-group>
+        <h4>멤버</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="haveMember">
+            <md-radio-button class="example-radio-button" *ngFor="let member of members" [value]="member">
+                {{member}}
+            </md-radio-button>
+        </md-radio-group>
+        <h4>종류</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="haveType">
+            <md-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
+                {{type}}
+            </md-radio-button>
+        </md-radio-group>
+    </md-card-content>
+    <hr>
+    <md-card-content>
+        <h3>너덬이 갖고싶은 것?</h3>
+        <h4>버전</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="wantVersion">
+            <md-radio-button class="example-radio-button" *ngFor="let version of versions" [value]="version">
+                {{version}}
+            </md-radio-button>
+        </md-radio-group>
+        <h4>멤버</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="wantMember">
+            <md-radio-button class="example-radio-button" *ngFor="let member of members" [value]="member">
+                {{member}}
+            </md-radio-button>
+        </md-radio-group>
+        <h4>종류</h4>
+        <md-radio-group class="example-radio-group" [(ngModel)]="wantType">
+            <md-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
+                {{type}}
+            </md-radio-button>
+        </md-radio-group>
+    </md-card-content>
+
+    <md-card-actions>
+        <h4 class="example-selected-value">너덬이 가진 것: {{haveVersion}} - {{haveMember}} - {{haveType}} </h4>
+        <h4 class="example-selected-value">너덬이 갖고싶은 것: {{wantVersion}} - {{wantMember}} - {{wantType}} </h4>
+        <button md-button class="register-button">교환 신청하기</button>
+    </md-card-actions>
+</md-card>
