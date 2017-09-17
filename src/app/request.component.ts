@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'exchange-register',
+    selector: 'exchange-edit',
     templateUrl: './request.component.html',
     styleUrls: ['./request.component.scss'],
 })
 export class RequestComponent {
-    
+
     versions = [
         'Winter',
         'Spring',
