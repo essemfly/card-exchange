@@ -19,6 +19,7 @@ import {
   MdFormFieldModule,
   MdInputModule,
   MdRadioModule,
+  MdTableModule,
 } from '@angular/material';
 
 @NgModule({
@@ -42,6 +43,7 @@ import {
     MdFormFieldModule,
     MdInputModule,
     MdRadioModule,
+    MdTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
