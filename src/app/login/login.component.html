@@ -3,10 +3,10 @@
         <img md-card-image src="assets/main.jpg" />
         <form class="example-form">
             <md-form-field class="example-full-width">
-                <input mdInput placeholder="아이디" value="">
+                <input mdInput placeholder="아이디" [(ngModel)]="username" value="" name="username">
             </md-form-field>
             <md-form-field class="example-full-width">
-                <input mdInput placeholder="비밀번호" value="">
+                <input mdInput placeholder="비밀번호" [(ngModel)]="password" value="" name="password">
             </md-form-field>
         </form>
     </md-card-content>
