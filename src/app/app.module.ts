@@ -5,10 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register.component';
-import { DashboardComponent } from './dashboard.component';
-import { RequestComponent } from './request.component';
-import { LoginComponent } from './login.component';
+import { RegisterComponent } from './register';
+import { DashboardComponent } from './dashboard';
+import { RequestComponent } from './request';
+import { LoginComponent } from './login';
 import { AppRoutingModule } from './app-routing.module';
 
 import {
