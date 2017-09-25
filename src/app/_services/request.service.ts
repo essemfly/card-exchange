@@ -1,8 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class RequestService {
-    getRequests(): void {
-        
+    constructor(
+        private http: Http) {}
+
+    postRequest(token, haveCard, wantCard) {
+        let headers = new Headers({ 'Authorization': 'JWT ' + token });
+        let options = new RequestOptions({ headers: headers });
+        let postData = {
+            "have_card_id" : haveCard,
+            "want_card_id" : wantCard
+        };
+        return this.http.post('http://localhost:8000/exchange/requests/', postData, options)
+        .map((response: Response) => {
+            return response.json()
+        });
     }
 }

@@ -3,23 +3,19 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
  
-import { AuthenticationService } from '../_services/index';
-import { User } from '../_models/index';
- 
 @Injectable()
 export class CardService {
     constructor(
-        private http: Http,
-        private authenticationService: AuthenticationService) {
-    }
+        private http: Http) {}
  
-    getUsers(): Observable<User[]> {
+    getCards(token: String, group: Number) {
         // add authorization header with jwt token
-        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+        let headers = new Headers({ 'Authorization': 'JWT ' + token });
         let options = new RequestOptions({ headers: headers });
- 
         // get users from api
-        return this.http.get('http://localhost:8000/exchange/cards', options)
-            .map((response: Response) => response.json());
+        return this.http.get('http://localhost:8000/exchange/cards?group=1', options)
+            .map((response: Response) => {
+                return response.json()
+            });
     }
 }

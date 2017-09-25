@@ -7,7 +7,7 @@ import { AuthenticationService } from '../_services/index';
     selector: 'login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
-    providers: [ AuthenticationService],
+    providers: [ AuthenticationService ],
 })
 export class LoginComponent implements OnInit {
     username: '';
