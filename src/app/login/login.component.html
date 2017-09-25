@@ -6,12 +6,12 @@
                 <input mdInput placeholder="아이디" [(ngModel)]="username" value="" name="username">
             </md-form-field>
             <md-form-field class="example-full-width">
-                <input mdInput placeholder="비밀번호" [(ngModel)]="password" value="" name="password">
+                <input type="password" mdInput placeholder="비밀번호" [(ngModel)]="password" value="" name="password">
             </md-form-field>
         </form>
     </md-card-content>
     <md-card-actions>
         <button md-raised-button color="primary" class="login-button" (click)="login()">로그인</button>
-        <button md-raised-button color="warn" class="signup-button">회원 가입</button>
+        <button md-raised-button color="warn" class="signup-button" (click)="moveToSignUp()">회원 가입</button>
     </md-card-actions>
 </md-card>

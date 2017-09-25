@@ -1,0 +1,27 @@
+<md-card>
+    <md-card-title-group>
+            <md-card-title> 회원가입 페이지 </md-card-title>
+            <md-card-subtitle>간단한 회원가입으로 회원들과 카드를 교환하세요</md-card-subtitle>
+    </md-card-title-group>
+    <md-card-content>
+        <form class="example-form">
+            <md-form-field class="example-full-width">
+                <input mdInput placeholder="아이디" [(ngModel)]="username" value="" name="username">
+            </md-form-field>
+            <md-form-field class="example-full-width">
+                <input type="email" mdInput placeholder="이메일" [(ngModel)]="email" value="" name="password">
+            </md-form-field>
+            
+            <md-form-field class="example-full-width">
+                <input type="password" mdInput placeholder="비밀번호" [(ngModel)]="password" value="" name="password">
+            </md-form-field>
+            <md-form-field class="example-full-width">
+                <input type="password" mdInput placeholder="비밀번호 확인" [(ngModel)]="password_re" value="" name="password">
+            </md-form-field>
+        </form>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button color="primary" class="login-button" (click)="signup()">회원 가입</button>
+        <button md-raised-button color="warn" class="login-button" (click)="moveToLogin()">로그인 돌아가기</button>
+    </md-card-actions>
+</md-card>

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register';
 import { DashboardComponent } from './dashboard';
 import { RequestComponent } from './request';
-import { LoginComponent } from './login';
+import { LoginComponent, SignUpComponent } from './login';
 import { AppRoutingModule } from './app-routing.module';
 
 import {
@@ -30,6 +30,7 @@ import {
     DashboardComponent,
     RequestComponent,
     LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
