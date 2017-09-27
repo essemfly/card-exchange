@@ -7,7 +7,7 @@ import { AuthenticationService, CardService, RequestService } from '../_services
     selector: 'exchange-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
-    providers: [ AuthenticationService, CardService, RequestService ],
+    providers: [AuthenticationService, CardService, RequestService],
 })
 export class RegisterComponent implements OnInit {
     public cards = []
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     public wantVersion = ''
     public wantMember = ''
     public wantType = ''
-    
+
 
     constructor(
         private router: Router,
@@ -36,14 +36,14 @@ export class RegisterComponent implements OnInit {
 
     getCards() {
         this.cardService.getCards(this.authenticationService.token, 1)
-        .subscribe(cards =>  {
-            this.cards = cards
-            this.arrangeCards()
-        });
+            .subscribe(cards => {
+                this.cards = cards
+                this.arrangeCards()
+            });
     }
 
     arrangeCards() {
-        for (let i=0; i<this.cards.length; i++){
+        for (let i = 0; i < this.cards.length; i++) {
             if (this.members.indexOf(this.cards[i].member) == -1) {
                 this.members.push(this.cards[i].member)
             }
@@ -59,17 +59,17 @@ export class RegisterComponent implements OnInit {
     applyRequest() {
         let haveCardId = -1
         let wantCardId = -1
-        for (let i=0; i<this.cards.length; i++) {
-            if (this.cards[i].member == this.haveMember 
+        for (let i = 0; i < this.cards.length; i++) {
+            if (this.cards[i].member == this.haveMember
                 && this.cards[i].version == this.haveVersion
                 && this.cards[i].type == this.haveType) {
-                    haveCardId = this.cards[i].id
-                }
-            if (this.cards[i].member == this.wantMember 
+                haveCardId = this.cards[i].id
+            }
+            if (this.cards[i].member == this.wantMember
                 && this.cards[i].version == this.wantVersion
                 && this.cards[i].type == this.wantType) {
-                    wantCardId = this.cards[i].id
-                }
+                wantCardId = this.cards[i].id
+            }
         }
         this.requestService.postRequest(this.authenticationService.token, haveCardId, wantCardId)
             .subscribe(result => {
