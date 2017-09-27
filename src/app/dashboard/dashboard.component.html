@@ -1,11 +1,16 @@
 <md-card>
     <md-list>
-        <md-list-item *ngFor="let request of requestResults">
-            <h3 mdLine> 현재 상태: {{request.status}} </h3>
-            <p mdLine> 가진 것: {{request.have_card}} </p>
-            <p mdLine> 원하는 것: {{request.want_card}} </p>
-            <h5 mdLine> {{request.created_at}} </h5>
-            <hr>
-        </md-list-item>
+        <a *ngFor="let request of requestResults" [routerLink]="['/request', request.id]" class="col-1-4">
+            <md-list-item>
+                <h3 mdLine> 현재 상태: {{request.status}} </h3>
+                <p mdLine> 가진 것: {{request.have_card}} </p>
+                <p mdLine> 원하는 것: {{request.want_card}} </p>
+                <h5 mdLine> {{request.created_at}} </h5>
+                <h4 *ngIf="request.matcher"> 매칭정보</h4>
+                <p mdLine *ngIf="request.matcher;"> 메일 주소: {{request.matcher}} </p>
+                <h5 mdLine *ngIf="request.matcher;"> {{request.matched_at}} </h5>
+                <hr>
+            </md-list-item>
+        </a>
     </md-list>
 </md-card>

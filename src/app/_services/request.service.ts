@@ -8,6 +8,15 @@ export class RequestService {
         private http: Http
     ) {}
 
+    getRequest(token, id) {
+        let headers = new Headers({ 'Authorization': 'JWT ' + token });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.get('http://localhost:8000/exchange/requests/' + id, options)
+            .map((response: Response) => {
+                return response.json()
+            })
+    }
+
     getRequests(token) {
         let headers = new Headers({ 'Authorization': 'JWT ' + token });
         let options = new RequestOptions({ headers: headers });

@@ -39,6 +39,8 @@ export class DashboardComponent implements OnInit {
                 "want_card": this.requests[i].want_card.member + " / " + this.requests[i].want_card.type + " / " + this.requests[i].want_card.version,
                 "created_at": this.convertTime(this.requests[i].created_date),
                 "status": this.convertStatus(this.requests[i].status),
+                "matcher": this.requests[i].matcher,
+                "matched_at": this.convertTime(this.requests[i].matched_date)
             })
         }
     }
