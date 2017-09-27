@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { environment } from '../../environments/environment'
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -11,7 +12,7 @@ export class RequestService {
     getRequest(token, id) {
         let headers = new Headers({ 'Authorization': 'JWT ' + token });
         let options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost:8000/exchange/requests/' + id, options)
+        return this.http.get(environment.serverUrl + 'exchange/requests/' + id, options)
             .map((response: Response) => {
                 return response.json()
             })
@@ -20,7 +21,7 @@ export class RequestService {
     getRequests(token) {
         let headers = new Headers({ 'Authorization': 'JWT ' + token });
         let options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost:8000/exchange/requests/', options)
+        return this.http.get(environment.serverUrl + 'exchange/requests/', options)
             .map((response: Response) => {
                 return response.json()
             })
@@ -33,7 +34,7 @@ export class RequestService {
             "have_card_id" : haveCard,
             "want_card_id" : wantCard
         };
-        return this.http.post('http://localhost:8000/exchange/requests/', postData, options)
+        return this.http.post(environment.serverUrl + 'exchange/requests/', postData, options)
             .map((response: Response) => {
                 return response.json()
             });
@@ -46,7 +47,7 @@ export class RequestService {
             "have_card_id" : haveCard,
             "want_card_id" : wantCard
         };
-        return this.http.put('http://localhost:8000/exchange/requests/'+ requestId, postData, options)
+        return this.http.put(environment.serverUrl + 'exchange/requests/'+ requestId, postData, options)
         .map((response: Response) => {
             return response.json()
         });
@@ -55,7 +56,7 @@ export class RequestService {
     deleteRequest(token, requestId) {
         let headers = new Headers({ 'Authorization': 'JWT ' + token });
         let options = new RequestOptions({ headers: headers });
-        return this.http.delete('http://localhost:8000/exchange/requests/'+ requestId,  options)
+        return this.http.delete(environment.serverUrl + 'exchange/requests/'+ requestId,  options)
         .map((response: Response) => {
             return response.json()
         });

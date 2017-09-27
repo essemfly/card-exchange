@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment'
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -19,10 +20,10 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        return this.http.post('http://localhost:8000/login/', JSON.stringify({
+        return this.http.post(environment.serverUrl + 'login/', JSON.stringify({
             username: username,
             password: password,
-        }), {headers: this.headers}
+        }), { headers: this.headers }
         ).map((response: Response) => {
             // login successful if there's a jwt token in the response
             let token = response.json() && response.json().token;
@@ -43,11 +44,11 @@ export class AuthenticationService {
     }
 
     signup(username: string, password: string, email: string): Observable<boolean> {
-        return this.http.post('http://localhost:8000/registration/', JSON.stringify({
+        return this.http.post(environment.serverUrl + 'registration/', JSON.stringify({
             username: username,
             password: password,
             email: email,
-        }), {headers: this.headers}
+        }), { headers: this.headers }
         ).map((response: Response) => {
             // login successful if there's a jwt token in the response
             let token = response.json() && response.json().token;
