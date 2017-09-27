@@ -38,4 +38,26 @@ export class RequestService {
                 return response.json()
             });
     }
+
+    editRequest(token, requestId, haveCard, wantCard) {
+        let headers = new Headers({ 'Authorization': 'JWT ' + token });
+        let options = new RequestOptions({ headers: headers });
+        let postData = {
+            "have_card_id" : haveCard,
+            "want_card_id" : wantCard
+        };
+        return this.http.put('http://localhost:8000/exchange/requests/'+ requestId, postData, options)
+        .map((response: Response) => {
+            return response.json()
+        });
+    }
+
+    deleteRequest(token, requestId) {
+        let headers = new Headers({ 'Authorization': 'JWT ' + token });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.delete('http://localhost:8000/exchange/requests/'+ requestId,  options)
+        .map((response: Response) => {
+            return response.json()
+        });
+    }
 }

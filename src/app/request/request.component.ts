@@ -69,7 +69,7 @@ export class RequestComponent {
         }
     }
 
-    applyRequest() {
+    editRequest() {
         let haveCardId = -1
         let wantCardId = -1
         for (let i = 0; i < this.cards.length; i++) {
@@ -84,7 +84,9 @@ export class RequestComponent {
                 wantCardId = this.cards[i].id
             }
         }
-        this.requestService.postRequest(this.authenticationService.token, haveCardId, wantCardId)
+        this.route.paramMap
+        .switchMap((params: ParamMap) => 
+            this.requestService.editRequest(this.authenticationService.token, params.get('id'), haveCardId, wantCardId))
             .subscribe(result => {
                 this.router.navigate(['/dashboard']);
             })
