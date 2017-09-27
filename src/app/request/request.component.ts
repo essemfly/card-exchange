@@ -91,4 +91,13 @@ export class RequestComponent {
                 this.router.navigate(['/dashboard']);
             })
     }
+
+    deleteRequest() {
+        this.route.paramMap
+        .switchMap((params: ParamMap) => 
+            this.requestService.deleteRequest(this.authenticationService.token, params.get('id')))
+            .subscribe(result => {
+                this.router.navigate(['/dashboard']);
+            })
+    }
 }
