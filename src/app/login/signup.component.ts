@@ -12,6 +12,7 @@ import { AuthenticationService } from '../_services/index';
 export class SignUpComponent implements OnInit {
     username: '';
     password: '';
+    password_re: '';
     email: '';
     loading = false;
     error = '';
