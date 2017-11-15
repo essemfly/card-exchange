@@ -31,11 +31,10 @@ export class LoginComponent implements OnInit {
                 if (result === true) {
                     // login successful
                     this.router.navigate(['/dashboard']);
-                } else {
-                    // login failed
-                    this.error = 'Username or password is incorrect';
-                    this.loading = false;
                 }
+            }, error => {
+                this.error = '입력하신 정보가 정확하지 않습니다.';
+                this.loading = false;
             });
     }
 

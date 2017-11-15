@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
         // reset login status
         this.authenticationService.logout();
     }
- 
+
     signup() {
         this.loading = true;
         this.authenticationService.signup(this.username, this.password, this.password_re, this.email)
@@ -33,11 +33,9 @@ export class SignUpComponent implements OnInit {
                 if (result === true) {
                     // login successful
                     this.router.navigate(['/login']);
-                } else {
-                    // login failed
-                    this.error = 'Username or password is incorrect';
-                    this.loading = false;
                 }
+            }, error => {
+                this.error = '가입요청이 실패했습니다.';
             });
     }
 

@@ -17,6 +17,8 @@ export class CardService {
         return this.http.get(environment.serverUrl + 'exchange/cards?group=1', options)
             .map((response: Response) => {
                 return response.json()
+            }).catch((error) => {
+                return Observable.throw(error);
             });
     }
 }

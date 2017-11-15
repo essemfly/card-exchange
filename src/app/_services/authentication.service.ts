@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
 
 @Injectable()
 export class AuthenticationService {
@@ -40,6 +41,8 @@ export class AuthenticationService {
                 // return false to indicate failed login
                 return false;
             }
+        }).catch((error) => {
+            return Observable.throw(error);
         });
     }
 
@@ -66,7 +69,9 @@ export class AuthenticationService {
                 // return false to indicate failed login
                 return false;
             }
-        });
+        }).catch((error) => {
+            return Observable.throw(error);
+        });;
     }
 
     logout(): void {
