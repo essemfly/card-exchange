@@ -43,10 +43,11 @@ export class AuthenticationService {
         });
     }
 
-    signup(username: string, password: string, email: string): Observable<boolean> {
+    signup(username: string, password: string, re_password: string, email: string): Observable<boolean> {
         return this.http.post(environment.serverUrl + 'registration/', JSON.stringify({
             username: username,
-            password: password,
+            password1: password,
+            password2: re_password,
             email: email,
         }), { headers: this.headers }
         ).map((response: Response) => {

@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
  
     signup() {
         this.loading = true;
-        this.authenticationService.signup(this.username, this.password, this.email)
+        this.authenticationService.signup(this.username, this.password, this.password_re, this.email)
             .subscribe(result => {
                 if (result === true) {
                     // login successful
