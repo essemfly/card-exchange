@@ -4,12 +4,21 @@
     max-height: 500px;
     min-width: 300px;
   }
-  
-  .mat-table {
-    overflow: auto;
-  }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+.mat-table {
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.example-icon {
+  padding: 0 5px;
+  line-height: 40px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
